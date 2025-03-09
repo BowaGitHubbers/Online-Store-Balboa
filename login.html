@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ---- Bootstrap CSS ---- -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Custom css -->
+    <link rel="stylesheet" id="mainStyle" href="css/auth.css" />
+
+    <!-- ---- Font Awesome ---- -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Ultra Shopping Center</title>
+  </head>
+  <body class="auth-body" style="background-color: rgb(24, 24, 24);">
+    <!-- Page Content -->
+    <div class="page-content d-flex align-items-center">
+      <div class="container d-flex justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+          <div class="auth-card">
+            <div class="p-3 mt-3 d-flex justify-content-center">
+              <div class="logo-icon">
+                <img src="images/tamang_sukat.png" alt="site icon" width="200px"/>
+                <span id="brand-name" class="fw-bold fs-1 pt-3"></span></div>
+            </div>
+            <button class="btn mt-5 mb-3 service-btn">
+              <i class="fab fa-facebook me-2"></i>Login with Facebook
+            </button>
+            <button class="btn mb-3 service-btn">
+              <i class="fab fa-google me-2"></i>Login with Google
+            </button>
+            <hr />
+            <form>
+              <div class="mb-2 mt-5">
+                <input
+                  type="email"
+                  class="form-control auth-input"
+                  placeholder="Email Address"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  class="form-control auth-input"
+                  placeholder="Password"
+                />
+              </div>
+              <button
+                class="btn auth-btn mt-2 mb-4 w-100 text-white"
+                type="submit"
+                style="background-color: #A91D3A;"
+              >
+                Login
+              </button>
+            </form>
+            <p class="text-center mb-1">
+              <a href="index.html" class="text-muted">Forgot Password</a>
+            </p>
+            <p class="text-center backmb-4" style="color: rgb(0, 0, 0);">
+              Don't have an account 
+              <a href="signup.html" class="text-muted">Register Here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Theme Change -->
+    <button id="theme_button" class="btn btn-theme" onclick="onThemeChange()">
+      <i id="theme_icon" class="fa fa-moon"></i>
+    </button>
+    <script>
+      function onThemeChange() {
+        // Variables
+        let cssStyleSheet = document.getElementById("mainStyle");
+        let cssLength = cssStyleSheet.href.length;
+        let path = cssStyleSheet.href.substring(cssLength - 9, cssLength);
+        let textElement = document.querySelector(".backmb-4");
+    
+        if (path === "/auth.css") {
+          cssStyleSheet.href = "css/auth_dark.css";
+          document.getElementById("theme_icon").className = "fa fa-sun";
+          textElement.innerHTML = 'Don\'t have an account <a href="signup.html" class="text-muted">Register Here</a>';
+          textElement.style.color = "white"; 
+        } else {
+          cssStyleSheet.href = "css/auth.css";
+          document.getElementById("theme_icon").className = "fa fa-moon";
+          textElement.innerHTML = 'Don\'t have an account <a href="signup.html" class="text-muted">Register Here</a>';
+          textElement.style.color = "black"; 
+        }
+      }
+    </script>    
+  </body>
+</html>
